@@ -1,1 +1,9 @@
 @import "tailwindcss";
+
+@theme {
+    --color-fern: #f7f3ec;
+    --color-cream: #58855C;
+    --color-gold: #d9a441;
+    --font-serif: "Fraunces", serif;
+    --font-sans: "Inter", sans-serif;
+}
