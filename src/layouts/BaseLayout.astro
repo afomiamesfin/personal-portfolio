@@ -7,7 +7,7 @@ interface Props {
 const {title} = Astro.props;
 const base = import.meta.env.BASE_URL // whatever url is in astro.config.mjs
 const tabs = [ // these guys tack on to the main url!!
-    {name: 'About', href: `${base}about/`},
+    {name: 'About me', href: `${base}about/`},
     {name: 'Experience', href: `${base}experience/`},
     {name: 'Yale', href: `${base}yale/`},
     {name: 'Projects', href: `${base}projects/`},
@@ -37,10 +37,10 @@ const currentPath = Astro.url.pathname;
     <link rel="manifest" href={`${base}site.webmanifest`}>
 </head>
 
-<body class="bg-fern text-cream font-sans min-h-screen">
+<body class="bg-navy text-white font-sans min-h-screen">
     <div class="flex flex-col md:flex-row min-h-screen">
         <nav class="md:w-64 shrink-0 p-8 md:p-12">
-            <a href={base} class="font-serif text-2xl font-light block mb-12 hover:text-gold transition-colors">
+            <a href={base} class="font-serif text-2xl font-light block mb-12 hover:text-teal transition-colors">
                 Afomia Mesfin
             </a>
 
@@ -54,7 +54,7 @@ const currentPath = Astro.url.pathname;
                         href={tab.href}
                         class:list={[
                         "font-serif text-4xl font-light transition-colors",
-                        isActive ? "text-gold" : "text-cream hover:text-gold"
+                        isActive ? "text-teal" : "text-white hover:text-teal"
                         ]}
                     >
                         {tab.name}
@@ -70,7 +70,24 @@ const currentPath = Astro.url.pathname;
     </main>
     </div>
 
-    <!-- eventually put a footer here? maybe Linkedin & email popup -->
+    <footer class="fixed bottom-6 left-8 flex gap-4 text-2xl font-sans z-10">
+        <a href={`${base}Afomia Mesfin Resume.pdf`} download class="text-cream hover:text-teal transition-colors" >
+            Resume
+        </a>
+
+        <button id="email-trigger" class="text-white hover:text-teal transition-colors ">
+            Email
+        </button>
+
+        <a href="https://www.linkedin.com/in/afomia-mesfin/" target="_blank" rel="noopener noreferrer"
+            class="text-white hover:text-teal transition-colors ">
+            Linkedin
+        </a>
+
+        <dialog id="email-popup" class="backdrop:bg-black/50 bg-white text-navy rounded-lg p-0 w-full max-w-md">
+        </dialog>
+    
+    </footer>
 
 </body>
 

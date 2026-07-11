@@ -1,9 +1,10 @@
 @import "tailwindcss";
 
 @theme {
-    --color-fern: #f7f3ec;
-    --color-cream: #58855C;
-    --color-gold: #d9a441;
+    --color-navy: #101B2D;
+    --color-white: #D7DCEA;
+    --color-teal: #33D6A6;
+    --color-cream: #878672;
     --font-serif: "Fraunces", serif;
     --font-sans: "Inter", sans-serif;
 }
