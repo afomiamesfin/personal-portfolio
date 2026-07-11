@@ -26,3 +26,8 @@ notes for next session
 - reformat to look like gazi's (diff color scheme?)
 - get email popup thing working
 - keep resume download capabilities, linkedin, email, etc references but maybe up top?
+
+session 4 - 7/11/2026
+- to turn many pages into 1 scrollable page, give each section an id & then use # to reference the section
+- basically messed around a lot with the max width and also padding like px and py to make text center on the page. remember justification!
+- set up color theme system where i can alternate the background, title, and text1 colors for different themes! need to keep the coloring consistent throughout the rest of the website so this keeps working

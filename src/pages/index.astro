@@ -1,4 +1,56 @@
 ---
-return Astro.redirect(`${import.meta.env.BASE_URL}about/`);
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
-<!-- ridrects people to afomiamesfin.github.io/portfolio/about/-->
+<BaseLayout title="home">
+    <!-- about -->
+    <section id="about" class="py-24 px-8 flex justify-center">
+        <div class="w-full max-w-3xl">
+            <h1 class="font-serif text-5xl font-light text-titles mb-6"> /about me</h1>
+            <p class="leading-relaxed text-xl text-text1">
+                [Filler] short bio, mission statement, photo gallery, causes I care about, and press features
+                + also maybe add buttons to contact me? like copy email, linkedin, github, email...
+                then keep top left nav but top right can have 1 "write me a note" feature where they dont leave my page
+            </p>
+        </div>
+    </section>
+
+    <!-- experience -->
+    <section id="experience" class="py-24 px-8 flex justify-center">
+        <div class="w-full max-w-3xl">
+            <h1 class="font-serif text-5xl font-light text-titles mb-6">/experience</h1>
+            <p class="leading-relaxed text-xl text-text1">
+                [Filler] professional roles and history
+            </p>
+        </div>
+    </section>
+
+    <!-- education -->
+    <section id="education" class="py-24 px-8 flex justify-center">
+        <div class="w-full max-w-3xl">
+            <h1 class="font-serif text-5xl font-light text-titles mb-6">/education</h1>
+            <p class="leading-relaxed text-xl text-text1">
+                [Filler] high school + Yale — clubs, roles, and impact
+            </p>
+        </div>
+    </section>
+
+    <!-- projects -->
+    <section id="projects" class="py-24 px-8 flex justify-center">
+        <div class="w-full max-w-3xl">
+            <h1 class="font-serif text-5xl font-light text-titles mb-6">/projects</h1>
+            <p class="leading-relaxed text-xl text-text1">
+                [Filler] personal projects including greenhaven
+            </p>
+        </div>
+    </section>
+
+    <!-- art -->
+    <section id="art" class="py-24 px-8 flex justify-center">
+        <div class="w-full max-w-3xl">
+            <h1 class="font-serif text-5xl font-light text-titles mb-6">/art</h1>
+            <p class="leading-relaxed text-xl text-text1">
+                [Filler] Painting gallery — title, date, featured at.
+            </p>
+        </div>
+    </section>
+</BaseLayout>
