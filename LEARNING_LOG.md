@@ -41,3 +41,6 @@ session 5 - 7/15, starting over!
 - u can add svg icons
 - i just had to fix a bug where there was no gap between the contact buttons, but when i edited a div container around the text AND buttons it messed up the fomrat of everything. i just fixed it though!
 - remmember to use <br> if you want to break up text
+
+session 4 - 7/16
+- to change your icon pic, just go to favicon.io & upload the desired image, then replace all the favicon files in public (just paste in the new ones and agree when it prompts you to replace the existing files with the same name) since you already have the framework for them set up in BaseLayout.astro
