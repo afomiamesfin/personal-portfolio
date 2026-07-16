@@ -44,3 +44,5 @@ session 5 - 7/15, starting over!
 
 session 4 - 7/16
 - to change your icon pic, just go to favicon.io & upload the desired image, then replace all the favicon files in public (just paste in the new ones and agree when it prompts you to replace the existing files with the same name) since you already have the framework for them set up in BaseLayout.astro
+- to clarify different behviors in desktop vs mobile you can do flex-col and md:flex-row. like md is the trigger to define behaviors on a phone-like screen
+- remember to give different qualities to chunks of text in the same paragraph you just use <span class="qualities to apply">text to apply it to<span>

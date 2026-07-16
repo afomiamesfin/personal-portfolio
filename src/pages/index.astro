@@ -5,17 +5,18 @@ const base = import.meta.env.BASE_URL; // for me BASE_URL is /portfolio/
 <BaseLayout title="home">
 
     <!-- about -->
-    <section id="about" class="items-center gap-12 text-4xl pt-24 pb-12 px-8 flex justify-center font-serif">
+    <section id="about" class="items-center gap-12 text-4xl pt-24 pb-12 px-8 flex flex-col md:flex-row justify-center font-serif">
         <!-- photo -->
-        <div class="w-75 h-75 rounded-2xl bg-card border border-accent"></div>
+        <div class="w-75 h-75 rounded-2xl bg-card border border-accent shrink-0"></div>
         <!-- text -->
         <div>
-            <h1 class="text-4xl mb-6">welcome! <span class=text-accent>i'm Afomia :D</span></h1>
+            <h1 class="text-4xl mb-6 text-accent">Welcome!</h1>
             <p class="leading-relaxed text-lg text-muted font-serif w-lg mb-6">
-                I'm Afomia Mesfin, an 18-year-old developer, artist, and climate-tech enthusiast from New Brighton, Minnesota!!
-                I'm passionate about the ethicality, environmental impact, and social influence of tech development. I'm 
-                currently a first-year student at Yale ('30) studying Computer Science and Climate Science & Solutions.
-                I am always open to collaborate or take on any new projects ᕙ( •̀ ᗜ •́ )ᕗ 
+                I'm <span class="text-accent">Afomia Mesfin</span>, an 18-year-old <span class="text-accent">developer, 
+                artist, and climate-tech enthusiast</span> from <span class="text-accent">Ethiopia</span> and New Brighton, <span class="text-accent">Minnesota</span> !! 
+                I'm passionate about the <span class="text-accent">ethicality, environmental impact, and social influence</span> of <span class="text-accent">tech</span> development. 
+                I'm currently a first-year student at <span class="text-accent">Yale ('30) </span> studying <span class="text-accent">Computer Science </span> and <span class="text-accent">Climate Science & Solutions. </span>
+                I am always <span class="text-accent">open to collaborate</span> or take on any <span class="text-accent">new projects ᕙ( •̀ ᗜ •́ )ᕗ</span>
             </p>
             <!-- buttons -->
             <div class="flex flex-wrap gap-3">
