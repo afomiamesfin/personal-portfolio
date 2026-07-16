@@ -26,7 +26,7 @@ const navLinks = [
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
         <link rel="apple-touch-icon" sizes="180x180" href={`${base}apple-touch-icon.png`}>
         <link rel="icon" type="image/png" sizes="32x32" href={`${base}favicon-32x32.png`}>
@@ -34,30 +34,45 @@ const navLinks = [
         <link rel="manifest" href={`${base}site.webmanifest`}>
     </head>
 
-    <body class="bg-bgrnd text-titles font-sans">
+    <body class="bg-bg text-text font-sans">
         <!-- nav bar -->
-        <header class="sticky top-0 z-50 bg-bgrnd/90 px-8 py-5 flex items-center justify-between">
+        <header class="sticky top-0 z-50 bg-bg/90 px-8 py-5 flex items-center justify-between">
             <a href="#about" class="font-serif text-2xl font-light"></a>
 
             <!-- desktop links (hidden om mobile by defaunt) -->
-            <nav class="hidden md:flex gap-8">
+            <nav class="hidden font-serif md:flex gap-8">
                 {navLinks.map((link) => (
-                <a href={link.href} class="text-sm text-titles transition-colors">{link.name}</a>
+                <a href={link.href} class="text-sm text-text transition-colors">{link.name}</a>
             ))}
             </nav>
 
             <!-- hamburger button, hidden on desktop -->
             <button id="menu-toggle" class="md:hidden" aria-label="Toggle menu">
-                <div class="w-6 h-0.5 bg-text1 mb-1.5"></div>
-                <div class="w-6 h-0.5 bg-text1 mb-1.5"></div>
-                <div class="w-6 h-0.5 bg-text1"></div>
+                <div class="w-6 h-0.5 bg-text mb-1.5"></div>
+                <div class="w-6 h-0.5 bg-text mb-1.5"></div>
+                <div class="w-6 h-0.5 bg-text"></div>
             </button>
         </header>
 
+        <script>
+            const copyBtn = document.getElementById('copy-email-btn');
+
+            copyBtn?.addEventListener('click', async () => {
+                await navigator.clipboard.writeText('afomia.mesfin@yale.edu');
+
+                // brief visual feedback so the user knows it worked
+                const original = copyBtn.textContent;
+                copyBtn.textContent = 'Copied :)';
+                setTimeout(() => {
+                    copyBtn.textContent = original;
+                }, 1500);
+            });
+        </script>
+
         <!-- mobile menu, starts hidden -->
-        <nav id="mobile-menu" class="hidden md:hidden flex-col gap-4 px-8 pb-6 bg-bgrnd">
+        <nav id="mobile-menu" class="hidden md:hidden flex-col gap-4 px-8 pb-6 bg-bg">
             {navLinks.map((link) => (
-                <a href={link.href} class="mobile-link text-base text-text1 hover:text-text1 transition-colors">{link.name}</a>
+                <a href={link.href} class="mobile-link text-base text-text hover:text-text transition-colors">{link.name}</a>
             ))}
         </nav>
 
@@ -65,6 +80,11 @@ const navLinks = [
         <main>
             <slot />
         </main>
+
+        <footer class="text-center px-8 py-12 text-sm font-serif text-muted">
+            Built and designed by Afomia Mesfin. <br>
+            All rights reserved. ©
+        </footer>
     </body>
 
     <script>

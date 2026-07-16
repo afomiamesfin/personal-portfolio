@@ -1,24 +1,73 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+const base = import.meta.env.BASE_URL; // for me BASE_URL is /portfolio/
 ---
 <BaseLayout title="home">
+
     <!-- about -->
-    <section id="about" class="py-24 px-8 flex justify-center">
-        <div class="w-full max-w-4xl">
-            <h1 class="font-serif text-5xl font-light text-titles mb-6"> /about me</h1>
-            <p class="leading-relaxed text-xl text-text1">
-                [Filler] short bio, mission statement, photo gallery, causes I care about, and press features
-                + also maybe add buttons to contact me? like copy email, linkedin, github, email...
-                then keep top left nav but top right can have 1 "write me a note" feature where they dont leave my page
+    <section id="about" class="items-center gap-12 text-4xl pt-24 pb-12 px-8 flex justify-center font-serif">
+        <!-- photo -->
+        <div class="w-75 h-75 rounded-2xl bg-card border border-accent"></div>
+        <!-- text -->
+        <div>
+            <h1 class="text-4xl mb-6">welcome! <span class=text-accent>i'm Afomia :D</span></h1>
+            <p class="leading-relaxed text-lg text-muted font-serif w-lg mb-6">
+                I'm Afomia Mesfin, an 18-year-old developer, artist, and climate-tech enthusiast from New Brighton, Minnesota!!
+                I'm passionate about the ethicality, environmental impact, and social influence of tech development. I'm 
+                currently a first-year student at Yale ('30) studying Computer Science and Climate Science & Solutions.
+                I am always open to collaborate or take on any new projects ᕙ( •̀ ᗜ •́ )ᕗ 
             </p>
+            <!-- buttons -->
+            <div class="flex flex-wrap gap-3">
+                <button
+                    id="copy-email-btn"
+                    class="inline-flex items-center gap-2 border border-accent text-accent rounded-lg px-5 py-2.5 text-sm font-semibold">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect width="20" height="16" x="2" y="4" rx="2"/>
+                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                    </svg>
+                Say hi!
+                </button>
+                <a 
+                    href="https://www.linkedin.com/in/afomia-mesfin/" 
+                    target="_blank" rel="noopener noreferrer"
+                    class="inline-flex items-center gap-2 border border-accent text-accent rounded-lg px-5 py-2.5 text-sm font-semibold">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                        <rect width="4" height="12" x="2" y="9"/>
+                        <circle cx="4" cy="4" r="2"/>
+                    </svg>
+                Linkedin
+                </a>
+                <a 
+                    href="https://github.com/afomiamesfin" 
+                    target="_blank" rel="noopener noreferrer"
+                    class="inline-flex items-center gap-2 border border-accent text-accent rounded-lg px-5 py-2.5 text-sm font-semibold">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                    </svg>
+                Github 
+                </a>
+                <a 
+                    href= {`${base}afomia-mesfin-resume.pdf`}
+                    target="_blank" rel="noopener noreferrer"
+                    class="inline-flex items-center gap-2 border border-accent text-accent rounded-lg px-5 py-2.5 text-sm font-semibold">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="7 10 12 15 17 10"/>
+                        <line x1="12" y1="15" x2="12" y2="3"/>
+                    </svg>
+                Download Resume
+                </a>
+            </div>
         </div>
     </section>
 
     <!-- experience -->
     <section id="experience" class="py-24 px-8 flex justify-center">
         <div class="w-full max-w-4xl">
-            <h1 class="font-serif text-5xl font-light text-titles mb-6">/experience</h1>
-            <p class="leading-relaxed text-xl text-text1">
+            <h1 class="font-serif text-4xl font-light text-text mb-6">/ experience</h1>
+            <p class="leading-relaxed text-xl text-muted font-serif">
                 [Filler] professional roles and history
             </p>
         </div>
@@ -27,8 +76,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     <!-- education -->
     <section id="education" class="py-24 px-8 flex justify-center">
         <div class="w-full max-w-4xl">
-            <h1 class="font-serif text-5xl font-light text-titles mb-6">/education</h1>
-            <p class="leading-relaxed text-xl text-text1">
+            <h1 class="font-serif text-4xl font-light text-text mb-6">/ education</h1>
+            <p class="leading-relaxed text-xl text-muted font-serif">
                 [Filler] high school + Yale — clubs, roles, and impact
             </p>
         </div>
@@ -37,8 +86,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     <!-- projects -->
     <section id="projects" class="py-24 px-8 flex justify-center">
         <div class="w-full max-w-4xl">
-            <h1 class="font-serif text-5xl font-light text-titles mb-6">/projects</h1>
-            <p class="leading-relaxed text-xl text-text1">
+            <h1 class="font-serif text-4xl font-light text-text mb-6">/ projects</h1>
+            <p class="leading-relaxed text-xl text-muted font-serif">
                 [Filler] personal projects including greenhaven
             </p>
         </div>
@@ -47,8 +96,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     <!-- art -->
     <section id="art" class="py-24 px-8 flex justify-center">
         <div class="w-full max-w-4xl">
-            <h1 class="font-serif text-5xl font-light text-titles mb-6">/art</h1>
-            <p class="leading-relaxed text-xl text-text1">
+            <h1 class="font-serif text-4xl font-light text-text mb-6">/ art</h1>
+            <p class="leading-relaxed text-xl text-muted font-serif">
                 [Filler] Painting gallery — title, date, featured at.
             </p>
         </div>

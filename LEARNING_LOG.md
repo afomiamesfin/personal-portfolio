@@ -31,3 +31,13 @@ session 4 - 7/11/2026
 - to turn many pages into 1 scrollable page, give each section an id & then use # to reference the section
 - basically messed around a lot with the max width and also padding like px and py to make text center on the page. remember justification!
 - set up color theme system where i can alternate the background, title, and text1 colors for different themes! need to keep the coloring consistent throughout the rest of the website so this keeps working
+
+session 5 - 7/15, starting over! 
+- starting with a design or a good visual of what you're going for is helpful
+- in global.css create color & font variables to be used throughout your project. its helpful not to name the color variables as your actual colors, rather name them things like "title" or highlight
+- making a box you use <div style="border-radius: 10px">
+- you can use div to place chunks of stuff next to each other. like image on one side & then words on the other
+- look @ copy button function in script. see how in index.astro i just had to give the button an id and then refenernce that id in BaseLayout with a script warpper to actually add functionality
+- u can add svg icons
+- i just had to fix a bug where there was no gap between the contact buttons, but when i edited a div container around the text AND buttons it messed up the fomrat of everything. i just fixed it though!
+- remmember to use <br> if you want to break up text
