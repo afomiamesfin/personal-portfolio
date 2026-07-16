@@ -48,16 +48,16 @@ const navLinks = [
 
             <!-- hamburger button, hidden on desktop -->
             <button id="menu-toggle" class="md:hidden" aria-label="Toggle menu">
-                <div class="w-6 h-0.5 bg-mist mb-1.5"></div>
-                <div class="w-6 h-0.5 bg-mist mb-1.5"></div>
-                <div class="w-6 h-0.5 bg-mist"></div>
+                <div class="w-6 h-0.5 bg-text1 mb-1.5"></div>
+                <div class="w-6 h-0.5 bg-text1 mb-1.5"></div>
+                <div class="w-6 h-0.5 bg-text1"></div>
             </button>
         </header>
 
         <!-- mobile menu, starts hidden -->
         <nav id="mobile-menu" class="hidden md:hidden flex-col gap-4 px-8 pb-6 bg-bgrnd">
             {navLinks.map((link) => (
-                <a href={link.href} class="mobile-link text-base text-mist hover:text-text1 transition-colors">{link.name}</a>
+                <a href={link.href} class="mobile-link text-base text-text1 hover:text-text1 transition-colors">{link.name}</a>
             ))}
         </nav>
 
@@ -74,14 +74,12 @@ const navLinks = [
 
         menuBtn?.addEventListener('click', () => {
             menu?.classList.toggle('hidden');
-            menu?.classList.toggle('flex');
         })
 
         // close menu when link is tapped
         document.querySelectorAll('.mobile-link').forEach((link) => {
             link.addEventListener('click', () => {
                 menu?.classList.toggle('hidden');
-                menu?.classList.toggle('flex');
             })
         })
     </script>
