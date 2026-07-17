@@ -8,11 +8,11 @@ const {title} = Astro.props;
 const base = import.meta.env.BASE_URL; // for me BASE_URL is /portfolio/
 
 const navLinks = [
-    {name: 'about', href: '#about'},
-    {name: 'experience', href: '#experience'},
-    {name: 'education', href: '#education'},
-    {name: 'projects', href: '#projects'},
-    {name: 'art', href: '#art'}
+    {name: '⤷ about', href: '#about'},
+    {name: '⤷ experience', href: '#experience'},
+    {name: '⤷ education', href: '#education'},
+    {name: '⤷ projects', href: '#projects'},
+    {name: '⤷ art', href: '#art'}
 ]
 ---
 
@@ -21,7 +21,7 @@ const navLinks = [
     <head>
         <!-- meta stuff, import fraunces font, setup site icon!! -->
         <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale-1.0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title> {title} - Afomia Mesfin </title>
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -48,10 +48,17 @@ const navLinks = [
 
             <!-- hamburger button, hidden on desktop -->
             <button id="menu-toggle" class="md:hidden" aria-label="Toggle menu">
-                <div class="w-6 h-0.5 bg-text mb-1.5"></div>
-                <div class="w-6 h-0.5 bg-text mb-1.5"></div>
-                <div class="w-6 h-0.5 bg-text"></div>
+                <div class="w-6 h-0.5 bg-current mb-1.5"></div>
+                <div class="w-6 h-0.5 bg-current mb-1.5"></div>
+                <div class="w-6 h-0.5 bg-current"></div>
             </button>
+
+            <!-- mobile menu, starts hidden -->
+            <nav id="mobile-menu" class="hidden flex-col gap-3 px-8 pb-6 bg-bg absolute top-full left-0 w-full">
+                {navLinks.map((link) => (
+                    <a href={link.href} class="mobile-link font-serif text-lg text-text hover:text-text transition-colors">{link.name}</a>
+                ))}
+            </nav>
         </header>
 
         <script>
@@ -68,13 +75,6 @@ const navLinks = [
                 }, 1500);
             });
         </script>
-
-        <!-- mobile menu, starts hidden -->
-        <nav id="mobile-menu" class="hidden md:hidden flex-col gap-4 px-8 pb-6 bg-bg">
-            {navLinks.map((link) => (
-                <a href={link.href} class="mobile-link text-base text-text hover:text-text transition-colors">{link.name}</a>
-            ))}
-        </nav>
 
         <!-- page content -->
         <main>
@@ -93,13 +93,24 @@ const navLinks = [
         const menu = document.getElementById('mobile-menu');
 
         menuBtn?.addEventListener('click', () => {
-            menu?.classList.toggle('hidden');
+            const isHidden = menu?.classList.contains('hidden');
+            if(isHidden){
+                menu?.classList.remove('hidden')
+                menu?.classList.add('flex')
+                menuBtn?.classList.add('text-accent')
+            } else {
+                menu?.classList.remove('flex')
+                menu?.classList.add('hidden')
+                menuBtn?.classList.remove('text-accent')
+            }
         })
 
         // close menu when link is tapped
         document.querySelectorAll('.mobile-link').forEach((link) => {
             link.addEventListener('click', () => {
-                menu?.classList.toggle('hidden');
+                menu?.classList.add('hidden')
+                menu?.classList.remove('flex')
+                menu?.classList.remove('color-accent')
             })
         })
     </script>
