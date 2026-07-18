@@ -24,7 +24,7 @@ const experience = [
     },
     {
         company: "KnightKrawler Robotics",
-        role: "Autonomous Controls Lead (2025), Team Operations Captain (2026)",
+        role: "Autonomous Lead '25 / Team Captain '26",
         dates: "SEP 2023 - MAY 2026",
         bullets: [
             "Produced flexible and efficient Java-based autonomous robotics software using tools like Pathplanner",
@@ -72,9 +72,9 @@ const education = [
             alt="Afomia Mesfin"
             class="w-75 h-75 rounded-2xl bg-card border border-accent shrink-0 object-cover">
         <!-- text -->
-        <div>
+        <div class="w-full md:w-auto">
             <h1 class="text-4xl mb-6 text-accent">Welcome!</h1>
-            <p class="leading-relaxed text-lg text-muted font-serif w-xl mb-6">
+            <p class="leading-relaxed text-lg text-muted font-serif w-full max-w-xl mb-6">
                 I'm <span class="text-accent">Afomia Mesfin</span>, an 18-year-old <span class="text-accent">developer, 
                 artist, and climate-tech enthusiast</span> from <span class="text-accent">Ethiopia</span> and New Brighton, <span class="text-accent">Minnesota</span> !! 
                 I'm passionate about the <span class="text-accent">ethicality, environmental impact, and social influence</span> of <span class="text-accent">tech</span> development. 
@@ -131,13 +131,13 @@ const education = [
     <section id="experience" class="pt-24 pb-12 px-8 flex justify-center">
         <div class="w-full max-w-4xl lg:max-w-6xl">
             <h1 class="font-serif text-4xl font-light text-text mb-6">/ experience</h1>
-            <div class="flex gap-10 w-4xl">
+            <div class="flex flex-col md:flex-row gap-10">
                 <!-- left: button list stacked vertically -->
-                <div class="flex flex-col gap-1 w-32 md-48 shrink-0">
+                <div class="flex flex-row md:flex-col gap-4 w-full md:w-48 shrink-0 overflow-x-auto">
                     {experience.map((job) => (
                         <button data-company={job.company} 
                             class:list={[
-                                "experience-tab text-left py-2.5 pl-4 border-l-2 text-sm md:text-base",
+                                "experience-tab shrink-0 text-left py-2.5 pl-4 border-l-2 text-sm md:text-base",
                                 job === experience[0] ? "border-accent text-accent" : "border-border text-muted",
                             ]}
                         >
@@ -151,7 +151,7 @@ const education = [
                     {experience.map((job) => (
                         <div data-company={job.company} 
                         class:list={["experience-panel mb-10", job !== experience[0] && "hidden"]}>
-                            <h3 class="font-serif text-2xl font-light text-text">
+                            <h3 class="font-serif text-2xl font-light text-text max-w-4xl">
                                 {job.role} <span class="text-accent">@ {job.company} </span>
                             </h3>
                             <p class="text-sm text-muted mb-4">
@@ -159,7 +159,7 @@ const education = [
                             </p>
                             <ul class="space-y-2">
                                 {job.bullets.map((bullet) => 
-                                        <li class="text-muted leading-relaxed"><span class="text-accent">⤷ </span>{bullet}</li>
+                                        <li class="text-muted leading-relaxed max-w-3xl"><span class="text-accent">⤷ </span>{bullet}</li>
                                 )}
                             </ul>
                         </div>
@@ -173,13 +173,13 @@ const education = [
     <section id="education" class="py-15 px-8 flex justify-center">
         <div class="w-full max-w-4xl lg:max-w-6xl">
             <h1 class="font-serif text-4xl font-light text-text mb-6">/ education</h1>
-            <div class="flex gap-10 w-4xl">
+            <div class="flex flex-col md:flex-row gap-10">
                 <!-- left: button list stacked vertically -->
-                <div class="flex flex-col gap-1 w-32 md-48 shrink-0">
+                <div class="flex flex-row md:flex-col gap-4 w-full md:w-48 shrink-0 overflow-x-auto">
                     {education.map((edu) => (
                         <button data-school={edu.school} 
                             class:list={[
-                                "education-tab text-left py-2.5 pl-4 border-l-2 text-sm md:text-base",
+                                "education-tab shrink-0 text-left py-2.5 pl-4 border-l-2 text-sm md:text-base",
                                 edu === education[0] ? "border-accent text-accent" : "border-border text-muted",
                             ]}
                         >
@@ -193,7 +193,7 @@ const education = [
                     {education.map((edu) => (
                         <div data-school={edu.school} 
                         class:list={["education-panel mb-10", edu !== education[0] && "hidden"]}>
-                            <h3 class="font-serif text-2xl font-light text-text">
+                            <h3 class="font-serif text-2xl font-light text-text max-w-4xl">
                                 {edu.school}
                             </h3>
                             <p class="text-sm text-muted mb-4">
@@ -202,13 +202,13 @@ const education = [
                             <h2 class="font-serif text-lg font-light text-text">Relevant Coursework</h2>
                             <ul class="space-y-1 mb-5">
                                 {edu.courses.map((course) => 
-                                        <li class="text-muted leading-relaxed"><span class="text-accent">⤷ </span>{course}</li>
+                                        <li class="text-muted leading-relaxed max-w-3xl"><span class="text-accent">⤷ </span>{course}</li>
                                 )}
                             </ul>
                             <h2 class="font-serif text-lg font-light text-text">Extracurriculars</h2>
                             <ul class="space-y-2">
                                 {edu.ecs.map((ec) => 
-                                        <li class="text-muted leading-relaxed"><span class="text-accent">⤷ </span>{ec}</li>
+                                        <li class="text-muted leading-relaxed max-w-3xl"><span class="text-accent">⤷ </span>{ec}</li>
                                 )}
                             </ul>
                         </div>
