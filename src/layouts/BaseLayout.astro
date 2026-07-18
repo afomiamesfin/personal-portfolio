@@ -115,4 +115,35 @@ const navLinks = [
         })
     </script>
 
+    <script>
+        const tabs = document.querySelectorAll<HTMLElement>('.experience-tab');
+        const panels = document.querySelectorAll<HTMLElement>('.experience-panel');
+
+        tabs.forEach((tab) => {
+            tab.addEventListener('click', () => {
+                const company = tab.dataset.company;
+
+                // show only the panel whose data-company matches this button
+                panels.forEach((panel) => {
+                    if (panel.dataset.company === company) {
+                        panel.classList.remove('hidden');
+                    } else {
+                        panel.classList.add('hidden');
+                    }
+                });
+
+                // re-color all buttons: accent for the clicked one, muted for the rest
+                tabs.forEach((t) => {
+                    if (t === tab) {
+                        t.classList.add('text-accent', 'border-accent');
+                        t.classList.remove('text-muted', 'border-border');
+                    } else {
+                        t.classList.add('text-muted', 'border-border');
+                        t.classList.remove('text-accent', 'border-accent');
+                    }
+                });
+            });
+        });
+    </script>
+
 </html>

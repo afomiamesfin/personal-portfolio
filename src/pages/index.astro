@@ -1,17 +1,51 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 const base = import.meta.env.BASE_URL; // for me BASE_URL is /portfolio/
+
+const experience = [
+    {
+        company: "Qonqr",
+        role: "Software Engineer Intern",
+        dates: "JUNE 2026 - PRESENT ",
+        bullets: [
+            "Modernized the UI of a live cross-platform mobile game spanning 3M+ battle zones across 250+ countries, refactoring panels, popups, and map overlays, by migrating the legacy Xamarin & C# codebase to .NET MAUI",
+            "Improved UI consistency across iOS platforms, aligning components with current framework standards, by rebuilding interface elements in XAML"
+        ]
+    },
+    {
+        company: "SPS Commerce",
+        role: "Microsoft Market Team Intern",
+        dates: "JUNE 2025 - AUGUST 2025",
+        bullets: [
+            "Enabled global client onboarding by resolving 44 Salesforce support tickets and configuring 5+ new data environments for 20+ clients across 4 continents",
+            "Strengthened cross-team technical workflows and cloud environment management by utilizing Jira, Confluence, Postman, VMWare, and mRemoteNG",
+            "Built foundational cloud and data infrastructure expertise, completing Microsoft Azure Fundamentals coursework, through a 3-day technical bootcamp covering EDI, DEMEDI methodology, and SQL Server Management Studio"
+        ]
+    },
+    {
+        company: "KnightKrawler Robotics",
+        role: "Autonomous Controls Lead (2025), Team Operations Captain (2026)",
+        dates: "SEP 2023 - MAY 2026",
+        bullets: [
+            "Produced flexible and efficient Java-based autonomous robotics software using tools like Pathplanner",
+            "Standardized onboarding by authoring 53 software and executive training documents"
+        ]
+    }
+]
 ---
 <BaseLayout title="home">
 
     <!-- about -->
     <section id="about" class="items-center gap-12 text-4xl pt-24 pb-12 px-8 flex flex-col md:flex-row justify-center font-serif">
         <!-- photo -->
-        <div class="w-75 h-75 rounded-2xl bg-card border border-accent shrink-0"></div>
+        <img
+            src={`${base}headshot.png`}
+            alt="Afomia Mesfin"
+            class="w-75 h-75 rounded-2xl bg-card border border-accent shrink-0 object-cover">
         <!-- text -->
         <div>
             <h1 class="text-4xl mb-6 text-accent">Welcome!</h1>
-            <p class="leading-relaxed text-lg text-muted font-serif w-lg mb-6">
+            <p class="leading-relaxed text-lg text-muted font-serif w-xl mb-6">
                 I'm <span class="text-accent">Afomia Mesfin</span>, an 18-year-old <span class="text-accent">developer, 
                 artist, and climate-tech enthusiast</span> from <span class="text-accent">Ethiopia</span> and New Brighton, <span class="text-accent">Minnesota</span> !! 
                 I'm passionate about the <span class="text-accent">ethicality, environmental impact, and social influence</span> of <span class="text-accent">tech</span> development. 
@@ -65,18 +99,50 @@ const base = import.meta.env.BASE_URL; // for me BASE_URL is /portfolio/
     </section>
 
     <!-- experience -->
-    <section id="experience" class="py-24 px-8 flex justify-center">
-        <div class="w-full max-w-4xl">
+    <section id="experience" class="pt-24 pb-12 px-8 flex justify-center">
+        <div class="w-full max-w-4xl lg:max-w-6xl">
             <h1 class="font-serif text-4xl font-light text-text mb-6">/ experience</h1>
-            <p class="leading-relaxed text-xl text-muted font-serif">
-                [Filler] professional roles and history
-            </p>
+            <div class="flex gap-10 w-4xl">
+                <!-- left: button list stacked vertically -->
+                <div class="flex flex-col gap-1 w-32 md-48 shrink-0">
+                    {experience.map((job) => (
+                        <button data-company={job.company} 
+                            class:list={[
+                                "experience-tab text-left py-2.5 pl-4 border-l-2 text-sm md:text-base",
+                                job === experience[0] ? "border-accent text-accent" : "border-border text-muted",
+                            ]}
+                        >
+                            {job.company}
+                        </button>
+                    ))}
+                </div>
+
+                 <!-- right: data -->
+                <div class="flex-1">
+                    {experience.map((job) => (
+                        <div data-company={job.company} 
+                        class:list={["experience-panel mb-10", job !== experience[0] && "hidden"]}>
+                            <h3 class="font-serif text-2xl font-light text-text">
+                                {job.role} <span class="text-accent">@ {job.company} </span>
+                            </h3>
+                            <p class="text-sm text-muted mb-4">
+                                {job.dates}
+                            </p>
+                            <ul class="space-y-2">
+                                {job.bullets.map((bullet) => 
+                                        <li class="text-muted leading-relaxed">📌 {bullet}</li>
+                                )}
+                            </ul>
+                        </div>
+                    ))}
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- education -->
-    <section id="education" class="py-24 px-8 flex justify-center">
-        <div class="w-full max-w-4xl">
+    <section id="education" class="py-15 px-8 flex justify-center">
+        <div class="w-full max-w-4xl lg:max-w-6xl">
             <h1 class="font-serif text-4xl font-light text-text mb-6">/ education</h1>
             <p class="leading-relaxed text-xl text-muted font-serif">
                 [Filler] high school + Yale — clubs, roles, and impact
@@ -85,8 +151,8 @@ const base = import.meta.env.BASE_URL; // for me BASE_URL is /portfolio/
     </section>
 
     <!-- projects -->
-    <section id="projects" class="py-24 px-8 flex justify-center">
-        <div class="w-full max-w-4xl">
+    <section id="projects" class="py-15 px-8 flex justify-center">
+        <div class="w-full max-w-4xl lg:max-w-6xl">
             <h1 class="font-serif text-4xl font-light text-text mb-6">/ projects</h1>
             <p class="leading-relaxed text-xl text-muted font-serif">
                 [Filler] personal projects including greenhaven
@@ -95,8 +161,8 @@ const base = import.meta.env.BASE_URL; // for me BASE_URL is /portfolio/
     </section>
 
     <!-- art -->
-    <section id="art" class="py-24 px-8 flex justify-center">
-        <div class="w-full max-w-4xl">
+    <section id="art" class="py-15 px-8 flex justify-center">
+        <div class="w-full max-w-4xl lg:max-w-6xl">
             <h1 class="font-serif text-4xl font-light text-text mb-6">/ art</h1>
             <p class="leading-relaxed text-xl text-muted font-serif">
                 [Filler] Painting gallery — title, date, featured at.

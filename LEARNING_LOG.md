@@ -46,3 +46,13 @@ session 4 - 7/16
 - to change your icon pic, just go to favicon.io & upload the desired image, then replace all the favicon files in public (just paste in the new ones and agree when it prompts you to replace the existing files with the same name) since you already have the framework for them set up in BaseLayout.astro
 - to clarify different behviors in desktop vs mobile you can do flex-col and md:flex-row. like md is the trigger to define behaviors on a phone-like screen
 - remember to give different qualities to chunks of text in the same paragraph you just use <span class="qualities to apply">text to apply it to<span>
+
+session 5 - 7/17
+- doing name?.class.add or remove allows you to edit the modifiers like flex placement or text color after some condition is met (using javascript)
+- learned a lot about mapping data! format:
+{array.map((nameData) => 
+    <li class="manipulators"> text </li>
+)}
+- querySelectorAll('.experience-panel') — returns all elements with that class as a list, not just one. You'll then forEach over that list to check/change each one, versus getElementById which always hands you a single specific element.
+- Any data-whatever attribute in your HTML becomes accessible in JS as element.dataset.whatever.
+- @lt; and @gt; is how you print < or > without triggering HTML
