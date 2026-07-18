@@ -32,6 +32,35 @@ const experience = [
         ]
     }
 ]
+
+const education = [
+    {
+        school: "Yale College",
+        dates: "AUG 2026 - MAY 2030",
+        courses: [
+            "coming soon :)"
+        ],
+        ecs: [
+            "coming soon :)"
+        ]
+    },
+    {
+        school: "Irondale Senior High School",
+        dates: "SEP 2022 - May 2026",
+        courses: [
+            "AP Human Geography, AP US History, AP World History, AP Comparative Government",
+            "AP Macroeconomics, AP Calculus AB & BC; AP Computer Science, AP Statistics, AP Physics C: Mechanics",
+            "AP Biology, AP Psychology",
+            "AP Language & Composition, AP Literature & Composition"
+        ],
+        ecs: [
+            "KnightKrawler Robotics (Autonomous Lead, Team Operations Captain)",
+            "Irondale Women Empowerment (Co-Founder & President)",
+            "Student Government Exec (Outreach Coordinator)",
+            "Swim & Dive (Varsity Diving Captain)"
+        ]
+    }
+]
 ---
 <BaseLayout title="home">
 
@@ -130,7 +159,7 @@ const experience = [
                             </p>
                             <ul class="space-y-2">
                                 {job.bullets.map((bullet) => 
-                                        <li class="text-muted leading-relaxed">📌 {bullet}</li>
+                                        <li class="text-muted leading-relaxed"><span class="text-accent">⤷ </span>{bullet}</li>
                                 )}
                             </ul>
                         </div>
@@ -144,9 +173,48 @@ const experience = [
     <section id="education" class="py-15 px-8 flex justify-center">
         <div class="w-full max-w-4xl lg:max-w-6xl">
             <h1 class="font-serif text-4xl font-light text-text mb-6">/ education</h1>
-            <p class="leading-relaxed text-xl text-muted font-serif">
-                [Filler] high school + Yale — clubs, roles, and impact
-            </p>
+            <div class="flex gap-10 w-4xl">
+                <!-- left: button list stacked vertically -->
+                <div class="flex flex-col gap-1 w-32 md-48 shrink-0">
+                    {education.map((edu) => (
+                        <button data-school={edu.school} 
+                            class:list={[
+                                "education-tab text-left py-2.5 pl-4 border-l-2 text-sm md:text-base",
+                                edu === education[0] ? "border-accent text-accent" : "border-border text-muted",
+                            ]}
+                        >
+                            {edu.school}
+                        </button>
+                    ))}
+                </div>
+
+                 <!-- right: data -->
+                <div class="flex-1">
+                    {education.map((edu) => (
+                        <div data-school={edu.school} 
+                        class:list={["education-panel mb-10", edu !== education[0] && "hidden"]}>
+                            <h3 class="font-serif text-2xl font-light text-text">
+                                {edu.school}
+                            </h3>
+                            <p class="text-sm text-muted mb-4">
+                                {edu.dates}
+                            </p>
+                            <h2 class="font-serif text-lg font-light text-text">Relevant Coursework</h2>
+                            <ul class="space-y-1 mb-5">
+                                {edu.courses.map((course) => 
+                                        <li class="text-muted leading-relaxed"><span class="text-accent">⤷ </span>{course}</li>
+                                )}
+                            </ul>
+                            <h2 class="font-serif text-lg font-light text-text">Extracurriculars</h2>
+                            <ul class="space-y-2">
+                                {edu.ecs.map((ec) => 
+                                        <li class="text-muted leading-relaxed"><span class="text-accent">⤷ </span>{ec}</li>
+                                )}
+                            </ul>
+                        </div>
+                    ))}
+                </div>
+            </div>
         </div>
     </section>
 
